@@ -1,17 +1,15 @@
 import 'package:calaton_second_project/data/repository/abstract_user.dart';
 
 import '../../app/service/shared_pref_service.dart';
-import '../../domain/user.dart';
 import '../model/user.dart';
 
 class UserRepository implements IUserRepository {
-  UserRepository({required CredentialService prefService})
+  UserRepository({required UserService prefService})
       : _prefService = prefService;
-  final CredentialService _prefService;
+  final UserService _prefService;
 
   @override
-  IUser singIn(String email, String password) {
-    _prefService.put(email, password);
-    return ;
+  Future<void> singIn(String email, String password) {
+    return _prefService.put(User(email: email, password: password));
   }
 }

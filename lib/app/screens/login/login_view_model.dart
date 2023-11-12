@@ -10,7 +10,8 @@ class LoginViewModel extends BaseChangeNotifier {
 
   Future<void> onLogInButtonPressed(String email, String password) async {
     startLoading();
-    _userRepository.singIn(email, password);
+    await _userRepository.singIn(email, password);
+    stopLoading();
     await Future.delayed(const Duration(seconds: 2));
   }
 }

@@ -1,5 +1,5 @@
 import '../../domain/user.dart';
 
 abstract class IUserRepository {
-  IUser singIn(String email, String password);
+  Future<void> singIn(String email, String password);
 }

@@ -10,7 +10,7 @@ class LoginScreenFactory {
   static Widget build() {
     return ChangeNotifierProvider<LoginViewModel>(
       create: (context) => LoginViewModel(
-          userRepository: UserRepository(prefService: CredentialService())),
+          userRepository: UserRepository(prefService: UserService())),
       child: Consumer<LoginViewModel>(
         builder: (context, model, child) => LoginScreen(viewModel: model),
       ),
