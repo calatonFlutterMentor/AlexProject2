@@ -2,20 +2,21 @@ import 'package:calaton_second_project/data/model/user.dart';
 import 'package:calaton_second_project/domain/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'abstract_user_service.dart';
+
 class UserService implements IUserService {
   UserService();
 
   static const String _emailKey = "email";
   static const String _passwordKey = "email";
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-//TODO окремі put, оновити назву файлу
 
   @override
   Future<void> put(IUser user) async {
     final prefs = await _prefs;
     return Future.wait([
       prefs.setString(_emailKey, user.email),
-      prefs.setString(_passwordKey, user.password)  
+      prefs.setString(_passwordKey, user.password),
     ]).then((value) => null);
   }
 
@@ -37,14 +38,4 @@ class UserService implements IUserService {
       password: password!,
     );
   }
-}
-
-abstract class IUserService {
-
-  Future<void> put(IUser user);
-
-  Future<IUser> get();
-
-  Future<void> remove();
-
 }

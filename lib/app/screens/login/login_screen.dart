@@ -1,4 +1,3 @@
-import 'package:calaton_second_project/app/screens/home/home_screen.dart';
 import 'package:calaton_second_project/app/screens/login/login_view_model.dart';
 import 'package:calaton_second_project/app/screens/common_widgets/default_button.dart';
 import 'package:calaton_second_project/app/screens/login/widgets/login_input_field.dart';
@@ -63,8 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     widget.viewModel.onLogInButtonPressed(
                         emailController.text.toString(),
                         passwordController.text.toString());
-                 //   widget.viewModel.stopLoading();
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => HomeScreen()));
+                 //   Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => HomeScreenFactory.build()));
                   },
                 ),
               ]),

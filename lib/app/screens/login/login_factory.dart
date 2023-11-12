@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../data/repository/user_repo.dart';
-import '../../service/shared_pref_service.dart';
+import '../../service/user_service.dart';
 import 'login_screen.dart';
 
 class LoginScreenFactory {

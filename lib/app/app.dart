@@ -1,4 +1,4 @@
-import 'package:calaton_second_project/app/screens/login/login_factory.dart';
+import 'package:calaton_second_project/app/screens/home/home_factory.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -7,7 +7,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginScreenFactory.build(),
+      home: HomeScreenFactory.buildHomeScreen(),
     );
   }
 }
