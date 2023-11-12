@@ -12,6 +12,5 @@ class LoginViewModel extends BaseChangeNotifier {
     startLoading();
     await _userRepository.singIn(email, password);
     stopLoading();
-    await Future.delayed(const Duration(seconds: 2));
   }
 }

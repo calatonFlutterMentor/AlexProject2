@@ -3,6 +3,8 @@ import 'package:calaton_second_project/app/screens/common_widgets/default_button
 import 'package:calaton_second_project/app/screens/login/widgets/login_input_field.dart';
 import 'package:flutter/material.dart';
 
+import '../home/home_factory.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key, required this.viewModel});
 
@@ -31,41 +33,47 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 30),
           child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Text(
-                  'Register below with your details!',
-                  style: TextStyle(
-                    fontSize: 23,
-                    fontWeight: FontWeight.w400,
-                  ),
-                  textAlign: TextAlign.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Text(
+                'Register below with your details!',
+                style: TextStyle(
+                  fontSize: 23,
+                  fontWeight: FontWeight.w400,
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  child: LoginInputField(
-                    controller: emailController,
-                    hintText: "email",
-                  ),
+                textAlign: TextAlign.center,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: LoginInputField(
+                  controller: emailController,
+                  hintText: "email",
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  child: LoginInputField(
-                    controller: passwordController,
-                    hintText: "password",
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: LoginInputField(
+                  controller: passwordController,
+                  hintText: "password",
                 ),
-                DefaultButton(
-                  text: "Sing in",
-                  onPressedFunction: () {
+              ),
+              DefaultButton(
+                text: "Sing in",
+                onPressedFunction: () async {
+                  await Future.delayed(const Duration(seconds: 2));
+                  if (emailController.text.length > 3 &&
+                      passwordController.text.length > 3) {
                     widget.viewModel.onLogInButtonPressed(
                         emailController.text.toString(),
                         passwordController.text.toString());
-                 //   Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => HomeScreenFactory.build()));
-                  },
-                ),
-              ]),
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (_) => HomeScreenFactory.buildHomeScreen()));
+                  }
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

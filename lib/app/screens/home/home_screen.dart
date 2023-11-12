@@ -18,6 +18,13 @@ class HomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              const Padding(
+                padding:  EdgeInsets.only(bottom: 10),
+                child:  Text(
+                  'You are already logged in',
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 24),
+                ),
+              ),
               DefaultButton(
                 onPressedFunction: () {
                   viewModel.onLogOutButtonPressed();

@@ -15,7 +15,6 @@ class HomeViewModel extends BaseChangeNotifier {
   }
 
   Future<IUser> getUser() async {
-    notifyListeners();
     return await _userRepository.get();
   }
 }
